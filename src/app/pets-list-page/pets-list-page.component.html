@@ -6,24 +6,24 @@
   <a class="btn btn-primary" routerLink="/pets/new" role="button">New pet</a>
   <table class="table table-striped">
     <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Species</th>
-      <th scope="col">Date of birth</th>
-      <th scope="col">Date of Death</th>
-      <th scope="col">Note</th>
-      <th scope="col"></th>
-    </tr>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Species</th>
+        <th scope="col">Date of birth</th>
+        <th scope="col">Date of Death</th>
+        <th scope="col">Note</th>
+        <th scope="col"></th>
+      </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">Pet 1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><a routerLink="/pets/1" class="btn btn-sm btn-warning" role="button">Edit</a></td>
-    </tr>
+      <tr *ngFor="let pet of pets">
+        <th scope="row">{{pet.name}}</th>
+        <td>{{pet.species}}</td>
+        <td>{{pet.birth_date}}</td>
+        <td>{{pet.death_date}}</td>
+        <td>{{pet.note}}</td>
+        <td><a routerLink="/pets/1" class="btn btn-sm btn-warning" role="button">Edit</a></td>
+      </tr>
     </tbody>
   </table>
 </div>

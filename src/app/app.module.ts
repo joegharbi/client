@@ -10,6 +10,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { PetsListPageComponent } from './pets-list-page/pets-list-page.component';
 import { NewPetPageComponent } from './new-pet-page/new-pet-page.component';
 import { EditPetPageComponent } from './edit-pet-page/edit-pet-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditPetPageComponent } from './edit-pet-page/edit-pet-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
