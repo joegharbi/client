@@ -22,7 +22,7 @@
         <td>{{pet.birth_date}}</td>
         <td>{{pet.death_date}}</td>
         <td>{{pet.note}}</td>
-        <td><a routerLink="/pets/1" class="btn btn-sm btn-warning" role="button">Edit</a></td>
+        <td><a [routerLink]="['/pets',pet.id]" class="btn btn-sm btn-warning" role="button">Edit</a></td>
       </tr>
     </tbody>
   </table>

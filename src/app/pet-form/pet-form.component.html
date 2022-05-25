@@ -1,0 +1,51 @@
+<form action="" [formGroup]="petForm" (ngSubmit)="handleSubmit()">
+    <div class="form-group">
+        <label for="name" class="form-label">Pet name</label>
+        <input type="text" class="form-control" formControlName="name" id="name"
+            [class.is-invalid]="name.invalid&&(name.dirty||name.touched)" [class.is-valid]="name.valid"
+            placeholder="Name" value={{pet.name}}>
+        <div class="class invalid-feedback">
+            Please provide a name!
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="species" class="form-label">Species</label>
+        <input type="text" class="form-control" [class.is-invalid]="species.invalid&&(species.dirty||species.touched)"
+            [class.is-valid]="species.valid" formControlName="species" id="species" placeholder="Species"
+            value={{pet.species}}>
+        <div class="class invalid-feedback">
+            Please provide a species!
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="birth" class="form-label">Birth date</label>
+        <input type="date" [class.is-invalid]="birth_date.invalid&&(birth_date.dirty||birth_date.touched)"
+            [class.is-valid]="birth_date.valid" formControlName="birth_date" class="form-control" id="birth"
+            value={{pet.birth_date}}>
+        <div class="class invalid-feedback">
+            Please provide a date of birth!
+        </div>
+    </div>
+    <div class="form-group" *ngIf="pet.id">
+        <label for="death" class="form-label">Death date</label>
+        <input type="date" class="form-control"
+            [class.is-invalid]="death_date.invalid&&(death_date.dirty||death_date.touched)"
+            [class.is-valid]="death_date.valid" formControlName="death_date" id="death" value={{pet.death_date}}>
+        <div class="class invalid-feedback">
+            Please provide a death date!
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="note" class="form-label"></label>
+        <textarea class="form-control" [class.is-invalid]="note.invalid&&(note.dirty||note.touched)"
+            [class.is-valid]="note.valid" formControlName="note" id="note" rows="2"> {{pet.note}} 
+            
+        </textarea>
+        <div class="class invalid-feedback">
+            Please provide a note!
+        </div>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary" [disabled]="petForm.invalid"> Submit </button>
+    </div>
+</form>

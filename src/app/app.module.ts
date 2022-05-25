@@ -8,9 +8,10 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { PetsListPageComponent } from './pets-list-page/pets-list-page.component';
-import { NewPetPageComponent } from './new-pet-page/new-pet-page.component';
 import { EditPetPageComponent } from './edit-pet-page/edit-pet-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PetFormComponent } from './pet-form/pet-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,16 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     AboutPageComponent,
     PetsListPageComponent,
-    NewPetPageComponent,
-    EditPetPageComponent
+    EditPetPageComponent,
+    PetFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

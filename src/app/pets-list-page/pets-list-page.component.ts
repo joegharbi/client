@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pet } from '../pet';
+import { PetService } from '../pet.service';
 
 @Component({
   selector: 'app-pets-list-page',
@@ -8,15 +9,13 @@ import { Pet } from '../pet';
 })
 export class PetsListPageComponent implements OnInit {
 
-  public pets: Pet[] = [
-    { id: 1, name: 'Pet1', birth_date: '10/10/2022', death_date: '11/11/2022', species: 'cat', note: 'nothing' },
-    { id: 2, name: 'Pet2', birth_date: '12/12/2022', death_date: '11/11/2022', species: 'cat', note: 'nothing' },
-    { id: 3, name: 'Pet3', birth_date: '10/10/2022', death_date: '11/11/2022', species: 'cat', note: 'nothing' },
-    { id: 4, name: 'Pet4', birth_date: '10/11/2022', death_date: '11/11/2022', species: 'cat', note: 'nothing' }
-  ]
-  constructor() { }
+  public pets: Pet[] = [];
+  constructor(
+    private petService: PetService
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.pets = await this.petService.getPets()
   }
 
 }
