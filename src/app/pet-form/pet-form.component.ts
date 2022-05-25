@@ -34,7 +34,11 @@ export class PetFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.petForm.patchValue(this.pet)
+    // this.petForm.patchValue(this.pet)
+  }
+
+  ngOnChanges(): void {
+    this.petForm.patchValue(this.pet);
   }
 
   handleSubmit() {

@@ -2,8 +2,8 @@
     <div class="form-group">
         <label for="name" class="form-label">Pet name</label>
         <input type="text" class="form-control" formControlName="name" id="name"
-            [class.is-invalid]="name.invalid&&(name.dirty||name.touched)" [class.is-valid]="name.valid"
-            placeholder="Name" value={{pet.name}}>
+            [class.is-invalid]="name.invalid&&(name.dirty||name.touched)" [class.is-valid]="name.valid||pet.id"
+            placeholder="Name" [value]="pet.name" required>
         <div class="class invalid-feedback">
             Please provide a name!
         </div>
@@ -21,7 +21,7 @@
         <label for="birth" class="form-label">Birth date</label>
         <input type="date" [class.is-invalid]="birth_date.invalid&&(birth_date.dirty||birth_date.touched)"
             [class.is-valid]="birth_date.valid" formControlName="birth_date" class="form-control" id="birth"
-            value={{pet.birth_date}}>
+            [value]="pet.birth_date">
         <div class="class invalid-feedback">
             Please provide a date of birth!
         </div>
@@ -30,7 +30,7 @@
         <label for="death" class="form-label">Death date</label>
         <input type="date" class="form-control"
             [class.is-invalid]="death_date.invalid&&(death_date.dirty||death_date.touched)"
-            [class.is-valid]="death_date.valid" formControlName="death_date" id="death" value={{pet.death_date}}>
+            [class.is-valid]="death_date.valid" formControlName="death_date" id="death" [value]="pet.death_date">
         <div class="class invalid-feedback">
             Please provide a death date!
         </div>
@@ -38,8 +38,8 @@
     <div class="form-group">
         <label for="note" class="form-label"></label>
         <textarea class="form-control" [class.is-invalid]="note.invalid&&(note.dirty||note.touched)"
-            [class.is-valid]="note.valid" formControlName="note" id="note" rows="2"> {{pet.note}} 
-            
+            [class.is-valid]="note.valid||pet.id" [value]="pet.note" formControlName="note" id="note" rows="2">
+
         </textarea>
         <div class="class invalid-feedback">
             Please provide a note!

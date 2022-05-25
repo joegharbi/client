@@ -18,11 +18,11 @@ export class EditPetPageComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     const urlId = this.route.snapshot.paramMap.get('id');
     if (urlId) {
       const id = parseInt(urlId);
-      const pet = this.petService.getPet(id);
+      const pet = await this.petService.getPet(id);
       if (pet) {
         this.pet = pet;
       }
@@ -32,7 +32,7 @@ export class EditPetPageComponent implements OnInit {
   async handleSave(pet: Pet) {
 
     if (this.pet.id) {
-      this.petService.updatePet(this.pet.id, pet);
+      await this.petService.updatePet(this.pet.id, pet);
       this.router.navigate(['/pets']);
     }
     else {

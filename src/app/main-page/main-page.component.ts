@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PetService } from '../pet.service';
 
 @Component({
   selector: 'app-main-page',
@@ -6,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  num_pets = 5
-  dead = 2
-  constructor() { }
+  num_pets = 0
+  dead = 0
+  constructor(
+    private petService: PetService
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.num_pets = await this.petService.allPets()
+    this.dead = await this.petService.deadPets()
   }
 
 }
